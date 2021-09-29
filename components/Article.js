@@ -136,7 +136,7 @@ function articleMaker(article) {
   articlePanel.appendChild(articleParagraphThree);
   articlePanel.appendChild(articleExpandButton);
   // Adding Classes to the component's elements
-  articlePanel.classList.add(".article");
+  articlePanel.classList.add(".article", ".article-open");
   articleDate.classList.add(".date");
   articleExpandButton.classList.add(".expandButton");
   // Adding Content to the component's elements
@@ -145,6 +145,12 @@ function articleMaker(article) {
   articleParagraphOne.textContent = article.firstParagraph;
   articleParagraphTwo.textContent = article.secondParagraph;
   articleParagraphThree.textContent = article.thirdParagraph;
+  articleExpandButton.textContent = "+";
+  // Adding Toggle Funtionality onto the component's buttons
+  articleExpandButton.addEventListener("click", (event) => {
+    articlePanel.classList.toggle(".article-open");
+  });
   // Returning articlePanel
   return articlePanel;
 }
+// console.log(articleMaker);
