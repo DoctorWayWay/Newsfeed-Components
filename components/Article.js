@@ -87,6 +87,22 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
   },
+  {
+    title: "Shrek Town's People",
+    date: "Aug 2nd, 2004",
+    firstParagraph: `NO MORE Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `MORE Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `NO MORE Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor. PLEASE NO MORE HODOR HODOR! MORDOR?`,
+  },
 ];
 
 /*
@@ -136,9 +152,11 @@ function articleMaker(article) {
   articlePanel.appendChild(articleParagraphThree);
   articlePanel.appendChild(articleExpandButton);
   // Adding Classes to the component's elements
-  articlePanel.classList.add(".article", ".article-open");
-  articleDate.classList.add(".date");
-  articleExpandButton.classList.add(".expandButton");
+  articlePanel.classList.add("article", "article-open");
+  articleDate.classList.add("date");
+  articleExpandButton.classList.add("expandButton");
+  // Disabling articlePanel from starting open with .article-open
+  articlePanel.classList.toggle("article-open");
   // Adding Content to the component's elements
   articleTitle.textContent = article.title;
   articleDate.textContent = article.date;
@@ -148,9 +166,19 @@ function articleMaker(article) {
   articleExpandButton.textContent = "+";
   // Adding Toggle Funtionality onto the component's buttons
   articleExpandButton.addEventListener("click", (event) => {
-    articlePanel.classList.toggle(".article-open");
+    articlePanel.classList.toggle("article-open");
   });
   // Returning articlePanel
   return articlePanel;
 }
-// console.log(articleMaker);
+// console.log(articleMaker(data[0]));
+
+const articleArray = data.map((element) => {
+  return articleMaker(element);
+});
+
+// console.log(articleArray);
+
+articleArray.forEach((elementToAdd) => {
+  articles.appendChild(elementToAdd);
+});
