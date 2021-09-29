@@ -171,14 +171,13 @@ function articleMaker(article) {
   // Returning articlePanel
   return articlePanel;
 }
-// console.log(articleMaker(data[0]));
 
+// Mapping data array with articleMaker
 const articleArray = data.map((element) => {
   return articleMaker(element);
 });
 
-// console.log(articleArray);
-
+// Adding Articles to div.articles
 articleArray.forEach((elementToAdd) => {
   articles.appendChild(elementToAdd);
 });
