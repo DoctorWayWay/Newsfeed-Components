@@ -118,8 +118,9 @@ const data = [
 // ARTICLE SELECTOR
 const articles = document.querySelector("div.articles");
 
+// ARTICLE COMPONENT
 function articleMaker(article) {
-  // Article Component Elements
+  // Adding Component Elements
   const articlePanel = document.createElement("div");
   const articleTitle = document.createElement("h2");
   const articleDate = document.createElement("p");
@@ -134,4 +135,16 @@ function articleMaker(article) {
   articlePanel.appendChild(articleParagraphTwo);
   articlePanel.appendChild(articleParagraphThree);
   articlePanel.appendChild(articleExpandButton);
+  // Adding Classes to the component's elements
+  articlePanel.classList.add(".article");
+  articleDate.classList.add(".date");
+  articleExpandButton.classList.add(".expandButton");
+  // Adding Content to the component's elements
+  articleTitle.textContent = article.title;
+  articleDate.textContent = article.date;
+  articleParagraphOne.textContent = article.firstParagraph;
+  articleParagraphTwo.textContent = article.secondParagraph;
+  articleParagraphThree.textContent = article.thirdParagraph;
+  // Returning articlePanel
+  return articlePanel;
 }
