@@ -44,6 +44,7 @@ function menuMaker(arrayOfMenuItems) {
   menuContainer.appendChild(menuList);
   // Adding classes to the component's elements
   menuContainer.classList.add("menu", "menu--open");
+  menuContainer.classList.toggle("menu--open");
   // Adding a click event to the menu button
   const menuButton = document.querySelector(".menu-button");
   menuButton.addEventListener("click", () => {
@@ -58,5 +59,11 @@ function menuMaker(arrayOfMenuItems) {
   });
   return menuContainer;
 }
+// Storing menu navigation into menu variable
+const menu = menuMaker(menuItems);
 
-menuMaker(menuItems);
+function addMenu(arrayMenu) {
+  header.appendChild(arrayMenu);
+}
+// Adding the menu to the site
+addMenu(menu);
