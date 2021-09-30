@@ -136,7 +136,7 @@ const articles = document.querySelector("div.articles");
 
 // ARTICLE COMPONENT
 function articleMaker(article) {
-  // Adding Component Elements
+  // Adding component elements
   const articlePanel = document.createElement("div");
   const articleTitle = document.createElement("h2");
   const articleDate = document.createElement("p");
@@ -144,7 +144,7 @@ function articleMaker(article) {
   const articleParagraphTwo = document.createElement("p");
   const articleParagraphThree = document.createElement("p");
   const articleExpandButton = document.createElement("span");
-  // Nesting Elements to match Step 1's reference
+  // Nesting elements to match step 1's reference
   articlePanel.appendChild(articleTitle);
   articlePanel.appendChild(articleDate);
   articlePanel.appendChild(articleParagraphOne);
@@ -157,14 +157,14 @@ function articleMaker(article) {
   articleExpandButton.classList.add("expandButton");
   // Disabling articlePanel from starting open with .article-open
   articlePanel.classList.toggle("article-open");
-  // Adding Content to the component's elements
+  // Adding content to the component's elements
   articleTitle.textContent = article.title;
   articleDate.textContent = article.date;
   articleParagraphOne.textContent = article.firstParagraph;
   articleParagraphTwo.textContent = article.secondParagraph;
   articleParagraphThree.textContent = article.thirdParagraph;
   articleExpandButton.textContent = "+";
-  // Adding Toggle Funtionality onto the component's buttons
+  // Adding toggle funtionality onto the component's buttons
   articleExpandButton.addEventListener("click", (event) => {
     articlePanel.classList.toggle("article-open");
   });

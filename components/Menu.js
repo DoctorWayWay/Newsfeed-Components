@@ -35,10 +35,28 @@ let menuItems = [
 // HEADER SELECTOR
 const header = document.querySelector("div.header");
 
+// MENU COMPONENT
 function menuMaker(arrayOfMenuItems) {
   // Adding component elements
   const menuContainer = document.createElement("div");
   const menuList = document.createElement("ul");
-  const menuListItem = document.createElement("li");
   // Nesting component elements
+  menuContainer.appendChild(menuList);
+  // Adding classes to the component's elements
+  menuContainer.classList.add("menu", "menu--open");
+  // Adding a click event to the menu button
+  const menuButton = document.querySelector(".menu-button");
+  menuButton.addEventListener("click", () => {
+    menuContainer.classList.toggle("menu--open");
+  });
+  // Toggling off menu--open to prevent menu from starting open
+  // Looping append arrayMenuItems' items to menuList
+  arrayOfMenuItems.forEach((item) => {
+    const menuListItem = document.createElement("li");
+    menuListItem.textContent = item;
+    menuList.appendChild(menuListItem);
+  });
+  return menuContainer;
 }
+
+menuMaker(menuItems);
