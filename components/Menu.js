@@ -1,12 +1,12 @@
 // This is the data we will be using, study it but don't change anything, yet.
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out",
 ];
 
 /* 
@@ -31,3 +31,39 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+// HEADER SELECTOR
+const header = document.querySelector("div.header");
+
+// MENU COMPONENT
+function menuMaker(arrayOfMenuItems) {
+  // Adding component elements
+  const menuContainer = document.createElement("div");
+  const menuList = document.createElement("ul");
+  // Nesting component elements
+  menuContainer.appendChild(menuList);
+  // Adding classes to the component's elements
+  menuContainer.classList.add("menu", "menu--open");
+  menuContainer.classList.toggle("menu--open");
+  // Adding a click event to the menu button
+  const menuButton = document.querySelector(".menu-button");
+  menuButton.addEventListener("click", () => {
+    menuContainer.classList.toggle("menu--open");
+  });
+  // Toggling off menu--open to prevent menu from starting open
+  // Looping append arrayMenuItems' items to menuList
+  arrayOfMenuItems.forEach((item) => {
+    const menuListItem = document.createElement("li");
+    menuListItem.textContent = item;
+    menuList.appendChild(menuListItem);
+  });
+  return menuContainer;
+}
+// Storing menu navigation into menu variable
+const menu = menuMaker(menuItems);
+
+function addMenu(arrayMenu) {
+  header.appendChild(arrayMenu);
+}
+// Adding the menu to the site
+addMenu(menu);
